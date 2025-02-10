@@ -82,7 +82,7 @@ void _testStory(
       await expectLater(
         find.byType(Storybook),
         matchesGoldenFile(
-          'storybook_goldens/$story/${device.name.replaceAll('"', '')}.png',
+          'storybook_goldens/${story.toLowerCase().replaceAll(RegExp(r'\s+'), "_")}.png',
         ),
       );
 

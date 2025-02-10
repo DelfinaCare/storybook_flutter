@@ -14,12 +14,12 @@ import 'package:flutter_test/flutter_test.dart';
 ///included in your pubspec.yaml as well as from packages you depend on.
 Future<void> loadAppFonts() async {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final fontManifest = await rootBundle.loadStructuredData<Iterable<dynamic>>(
+  final fontManifest = await rootBundle.loadStructuredData(
     'FontManifest.json',
     (string) async => List<Map<String, dynamic>>.from(
       json.decode(string) as Iterable<dynamic>,
     ),
-  ) as Iterable<Map<String, dynamic>>;
+  );
 
   for (final Map<String, dynamic> font in fontManifest) {
     final fontLoader = FontLoader(derivedFontFamily(font));

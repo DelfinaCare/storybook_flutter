@@ -14,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 ///included in your pubspec.yaml as well as from packages you depend on.
 Future<void> loadAppFonts() async {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final fontManifest = await rootBundle.loadStructuredData(
+  final fontManifest = await rootBundle.loadStructuredData<Iterable<dynamic>>(
     'FontManifest.json',
     (string) async => List<Map<String, dynamic>>.from(
       json.decode(string) as Iterable<dynamic>,
